@@ -1,0 +1,8 @@
+{
+  "name": "BLACK OWL — HALLOWEEN BEST COSTUME VOTING",
+  "description": "Official guest voting portal and live leaderboard for Black Owl Halloween Best Costume Night.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

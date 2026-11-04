@@ -1,0 +1,1001 @@
+{
+  "outlets": [
+    [
+      "BOHO",
+      {
+        "code": "BOHO",
+        "name": "Black Owl Head Office",
+        "shortName": "Head Office",
+        "city": "Jakarta",
+        "address": "Black Owl Head Office, Jakarta",
+        "votingActive": true,
+        "totalVotes": 180
+      }
+    ],
+    [
+      "BOALL",
+      {
+        "code": "BOALL",
+        "name": "Black Owl All Outlet",
+        "shortName": "All Outlets",
+        "city": "PIK, KG, Gading Serpong, SCBD, Surabaya, Medan",
+        "address": "Black Owl Outlets (PIK, Kelapa Gading, Gading Serpong, SCBD, Surabaya, Medan)",
+        "votingActive": true,
+        "totalVotes": 1050
+      }
+    ]
+  ],
+  "contestants": [
+    [
+      "c_boho_1",
+      {
+        "id": "c_boho_1",
+        "outletCode": "BOHO",
+        "number": 1,
+        "numberDisplay": "#01",
+        "name": "Valentina Valois",
+        "costume": "@valentinavalois",
+        "instagram": "@valentinavalois",
+        "phoneNumber": "0812-9843-1101",
+        "description": "Black Owl Head Office — Vampire Elegance costume for Halloween Night.",
+        "imageUrl": "https://images.unsplash.com/photo-1509248961158-e54f6934749c?auto=format&fit=crop&w=800&q=80",
+        "votes": 42,
+        "isActive": true,
+        "hasConsented": true,
+        "createdAt": "2026-11-02T02:14:59.916Z"
+      }
+    ],
+    [
+      "c_boho_2",
+      {
+        "id": "c_boho_2",
+        "outletCode": "BOHO",
+        "number": 2,
+        "numberDisplay": "#02",
+        "name": "Kaelen Thorne",
+        "costume": "@kaelenthorne",
+        "instagram": "@kaelenthorne",
+        "phoneNumber": "0813-8821-4402",
+        "description": "Black Owl Head Office — Gothic Sorcerer costume for Halloween Night.",
+        "imageUrl": "https://images.unsplash.com/photo-1603775020644-eb8decd79994?auto=format&fit=crop&w=800&q=80",
+        "votes": 38,
+        "isActive": true,
+        "hasConsented": true,
+        "createdAt": "2026-11-02T03:14:59.916Z"
+      }
+    ],
+    [
+      "c_boho_3",
+      {
+        "id": "c_boho_3",
+        "outletCode": "BOHO",
+        "number": 3,
+        "numberDisplay": "#03",
+        "name": "Aurelia Vance",
+        "costume": "@aureliavance",
+        "instagram": "@aureliavance",
+        "phoneNumber": "0811-7729-3303",
+        "description": "Black Owl Head Office — Masquerade Phantom costume for Halloween Night.",
+        "imageUrl": "https://images.unsplash.com/photo-1543610892-0b1f7e6d8ac1?auto=format&fit=crop&w=800&q=80",
+        "votes": 31,
+        "isActive": true,
+        "hasConsented": true,
+        "createdAt": "2026-11-02T04:14:59.916Z"
+      }
+    ],
+    [
+      "c_boho_4",
+      {
+        "id": "c_boho_4",
+        "outletCode": "BOHO",
+        "number": 4,
+        "numberDisplay": "#04",
+        "name": "Dante Moretti",
+        "costume": "@dantemoretti",
+        "instagram": "@dantemoretti",
+        "phoneNumber": "0818-4455-6604",
+        "description": "Black Owl Head Office — Baroque Noble costume for Halloween Night.",
+        "imageUrl": "https://images.unsplash.com/photo-1568602471122-7832951cc4c5?auto=format&fit=crop&w=800&q=80",
+        "votes": 27,
+        "isActive": true,
+        "hasConsented": true,
+        "createdAt": "2026-11-02T05:14:59.916Z"
+      }
+    ],
+    [
+      "c_boho_5",
+      {
+        "id": "c_boho_5",
+        "outletCode": "BOHO",
+        "number": 5,
+        "numberDisplay": "#05",
+        "name": "Seraphina Roux",
+        "costume": "@seraphinaroux",
+        "instagram": "@seraphinaroux",
+        "phoneNumber": "0821-3322-1105",
+        "description": "Black Owl Head Office — Dark Siren costume for Halloween Night.",
+        "imageUrl": "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=800&q=80",
+        "votes": 23,
+        "isActive": true,
+        "hasConsented": true,
+        "createdAt": "2026-11-02T06:14:59.916Z"
+      }
+    ],
+    [
+      "c_boho_6",
+      {
+        "id": "c_boho_6",
+        "outletCode": "BOHO",
+        "number": 6,
+        "numberDisplay": "#06",
+        "name": "Marcus Sterling",
+        "costume": "@marcussterling",
+        "instagram": "@marcussterling",
+        "phoneNumber": "0857-1122-3306",
+        "description": "Black Owl Head Office — Blood Sovereign costume for Halloween Night.",
+        "imageUrl": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=800&q=80",
+        "votes": 19,
+        "isActive": true,
+        "hasConsented": true,
+        "createdAt": "2026-11-02T07:14:59.916Z"
+      }
+    ],
+    [
+      "c_boall_1",
+      {
+        "id": "c_boall_1",
+        "outletCode": "BOALL",
+        "number": 1,
+        "numberDisplay": "#01",
+        "name": "Valentina Valois",
+        "costume": "@valentinavalois_pik",
+        "instagram": "@valentinavalois_pik",
+        "phoneNumber": "0812-9843-1101",
+        "description": "Black Owl PIK contestant for Halloween Night (Black Owl All Outlet).",
+        "imageUrl": "https://images.unsplash.com/photo-1509248961158-e54f6934749c?auto=format&fit=crop&w=800&q=80",
+        "votes": 45,
+        "isActive": true,
+        "hasConsented": true,
+        "createdAt": "2026-10-31T15:14:59.916Z"
+      }
+    ],
+    [
+      "c_boall_2",
+      {
+        "id": "c_boall_2",
+        "outletCode": "BOALL",
+        "number": 2,
+        "numberDisplay": "#02",
+        "name": "Kaelen Thorne",
+        "costume": "@kaelenthorne_pik",
+        "instagram": "@kaelenthorne_pik",
+        "phoneNumber": "0813-8821-4402",
+        "description": "Black Owl PIK contestant for Halloween Night (Black Owl All Outlet).",
+        "imageUrl": "https://images.unsplash.com/photo-1603775020644-eb8decd79994?auto=format&fit=crop&w=800&q=80",
+        "votes": 39,
+        "isActive": true,
+        "hasConsented": true,
+        "createdAt": "2026-10-31T16:14:59.916Z"
+      }
+    ],
+    [
+      "c_boall_3",
+      {
+        "id": "c_boall_3",
+        "outletCode": "BOALL",
+        "number": 3,
+        "numberDisplay": "#03",
+        "name": "Aurelia Vance",
+        "costume": "@aureliavance_pik",
+        "instagram": "@aureliavance_pik",
+        "phoneNumber": "0811-7729-3303",
+        "description": "Black Owl PIK contestant for Halloween Night (Black Owl All Outlet).",
+        "imageUrl": "https://images.unsplash.com/photo-1543610892-0b1f7e6d8ac1?auto=format&fit=crop&w=800&q=80",
+        "votes": 34,
+        "isActive": true,
+        "hasConsented": true,
+        "createdAt": "2026-10-31T17:14:59.916Z"
+      }
+    ],
+    [
+      "c_boall_4",
+      {
+        "id": "c_boall_4",
+        "outletCode": "BOALL",
+        "number": 4,
+        "numberDisplay": "#04",
+        "name": "Dante Moretti",
+        "costume": "@dantemoretti_pik",
+        "instagram": "@dantemoretti_pik",
+        "phoneNumber": "0818-4455-6604",
+        "description": "Black Owl PIK contestant for Halloween Night (Black Owl All Outlet).",
+        "imageUrl": "https://images.unsplash.com/photo-1568602471122-7832951cc4c5?auto=format&fit=crop&w=800&q=80",
+        "votes": 28,
+        "isActive": true,
+        "hasConsented": true,
+        "createdAt": "2026-10-31T18:14:59.916Z"
+      }
+    ],
+    [
+      "c_boall_5",
+      {
+        "id": "c_boall_5",
+        "outletCode": "BOALL",
+        "number": 5,
+        "numberDisplay": "#05",
+        "name": "Seraphina Roux",
+        "costume": "@seraphinaroux_pik",
+        "instagram": "@seraphinaroux_pik",
+        "phoneNumber": "0821-3322-1105",
+        "description": "Black Owl PIK contestant for Halloween Night (Black Owl All Outlet).",
+        "imageUrl": "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=800&q=80",
+        "votes": 22,
+        "isActive": true,
+        "hasConsented": true,
+        "createdAt": "2026-10-31T19:14:59.916Z"
+      }
+    ],
+    [
+      "c_boall_6",
+      {
+        "id": "c_boall_6",
+        "outletCode": "BOALL",
+        "number": 6,
+        "numberDisplay": "#06",
+        "name": "Marcus Sterling",
+        "costume": "@marcussterling_pik",
+        "instagram": "@marcussterling_pik",
+        "phoneNumber": "0857-1122-3306",
+        "description": "Black Owl PIK contestant for Halloween Night (Black Owl All Outlet).",
+        "imageUrl": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=800&q=80",
+        "votes": 18,
+        "isActive": true,
+        "hasConsented": true,
+        "createdAt": "2026-10-31T20:14:59.916Z"
+      }
+    ],
+    [
+      "c_boall_7",
+      {
+        "id": "c_boall_7",
+        "outletCode": "BOALL",
+        "number": 7,
+        "numberDisplay": "#07",
+        "name": "Elena Rostova",
+        "costume": "@elenarostova_kg",
+        "instagram": "@elenarostova_kg",
+        "phoneNumber": "0812-4455-2201",
+        "description": "Black Owl Kelapa Gading contestant for Halloween Night (Black Owl All Outlet).",
+        "imageUrl": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=800&q=80",
+        "votes": 41,
+        "isActive": true,
+        "hasConsented": true,
+        "createdAt": "2026-10-31T21:14:59.916Z"
+      }
+    ],
+    [
+      "c_boall_8",
+      {
+        "id": "c_boall_8",
+        "outletCode": "BOALL",
+        "number": 8,
+        "numberDisplay": "#08",
+        "name": "Viktor Draven",
+        "costume": "@viktordraven_kg",
+        "instagram": "@viktordraven_kg",
+        "phoneNumber": "0813-7788-2202",
+        "description": "Black Owl Kelapa Gading contestant for Halloween Night (Black Owl All Outlet).",
+        "imageUrl": "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&w=800&q=80",
+        "votes": 36,
+        "isActive": true,
+        "hasConsented": true,
+        "createdAt": "2026-10-31T22:14:59.916Z"
+      }
+    ],
+    [
+      "c_boall_9",
+      {
+        "id": "c_boall_9",
+        "outletCode": "BOALL",
+        "number": 9,
+        "numberDisplay": "#09",
+        "name": "Lilith Morgan",
+        "costume": "@lilithmorgan_kg",
+        "instagram": "@lilithmorgan_kg",
+        "phoneNumber": "0811-9922-2203",
+        "description": "Black Owl Kelapa Gading contestant for Halloween Night (Black Owl All Outlet).",
+        "imageUrl": "https://images.unsplash.com/photo-1576836165612-8bc9b07e7778?auto=format&fit=crop&w=800&q=80",
+        "votes": 30,
+        "isActive": true,
+        "hasConsented": true,
+        "createdAt": "2026-10-31T23:14:59.916Z"
+      }
+    ],
+    [
+      "c_boall_10",
+      {
+        "id": "c_boall_10",
+        "outletCode": "BOALL",
+        "number": 10,
+        "numberDisplay": "#10",
+        "name": "Lucien Cross",
+        "costume": "@luciencross_kg",
+        "instagram": "@luciencross_kg",
+        "phoneNumber": "0818-6611-2204",
+        "description": "Black Owl Kelapa Gading contestant for Halloween Night (Black Owl All Outlet).",
+        "imageUrl": "https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=crop&w=800&q=80",
+        "votes": 26,
+        "isActive": true,
+        "hasConsented": true,
+        "createdAt": "2026-11-01T00:14:59.917Z"
+      }
+    ],
+    [
+      "c_boall_11",
+      {
+        "id": "c_boall_11",
+        "outletCode": "BOALL",
+        "number": 11,
+        "numberDisplay": "#11",
+        "name": "Astrid Vane",
+        "costume": "@astridvane_kg",
+        "instagram": "@astridvane_kg",
+        "phoneNumber": "0821-5544-2205",
+        "description": "Black Owl Kelapa Gading contestant for Halloween Night (Black Owl All Outlet).",
+        "imageUrl": "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=800&q=80",
+        "votes": 21,
+        "isActive": true,
+        "hasConsented": true,
+        "createdAt": "2026-11-01T01:14:59.917Z"
+      }
+    ],
+    [
+      "c_boall_12",
+      {
+        "id": "c_boall_12",
+        "outletCode": "BOALL",
+        "number": 12,
+        "numberDisplay": "#12",
+        "name": "Damian Thorne",
+        "costume": "@damianthorne_kg",
+        "instagram": "@damianthorne_kg",
+        "phoneNumber": "0857-3322-2206",
+        "description": "Black Owl Kelapa Gading contestant for Halloween Night (Black Owl All Outlet).",
+        "imageUrl": "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=800&q=80",
+        "votes": 17,
+        "isActive": true,
+        "hasConsented": true,
+        "createdAt": "2026-11-01T02:14:59.917Z"
+      }
+    ],
+    [
+      "c_boall_13",
+      {
+        "id": "c_boall_13",
+        "outletCode": "BOALL",
+        "number": 13,
+        "numberDisplay": "#13",
+        "name": "Cassandra Bell",
+        "costume": "@cassandrabell_gs",
+        "instagram": "@cassandrabell_gs",
+        "phoneNumber": "0812-3344-3301",
+        "description": "Black Owl Gading Serpong contestant for Halloween Night (Black Owl All Outlet).",
+        "imageUrl": "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?auto=format&fit=crop&w=800&q=80",
+        "votes": 40,
+        "isActive": true,
+        "hasConsented": true,
+        "createdAt": "2026-11-01T03:14:59.917Z"
+      }
+    ],
+    [
+      "c_boall_14",
+      {
+        "id": "c_boall_14",
+        "outletCode": "BOALL",
+        "number": 14,
+        "numberDisplay": "#14",
+        "name": "Felix Faust",
+        "costume": "@felixfaust_gs",
+        "instagram": "@felixfaust_gs",
+        "phoneNumber": "0813-2211-3302",
+        "description": "Black Owl Gading Serpong contestant for Halloween Night (Black Owl All Outlet).",
+        "imageUrl": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=800&q=80",
+        "votes": 35,
+        "isActive": true,
+        "hasConsented": true,
+        "createdAt": "2026-11-01T04:14:59.917Z"
+      }
+    ],
+    [
+      "c_boall_15",
+      {
+        "id": "c_boall_15",
+        "outletCode": "BOALL",
+        "number": 15,
+        "numberDisplay": "#15",
+        "name": "Isabella Nocturne",
+        "costume": "@isabellanocturne_gs",
+        "instagram": "@isabellanocturne_gs",
+        "phoneNumber": "0811-6677-3303",
+        "description": "Black Owl Gading Serpong contestant for Halloween Night (Black Owl All Outlet).",
+        "imageUrl": "https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&fit=crop&w=800&q=80",
+        "votes": 29,
+        "isActive": true,
+        "hasConsented": true,
+        "createdAt": "2026-11-01T05:14:59.917Z"
+      }
+    ],
+    [
+      "c_boall_16",
+      {
+        "id": "c_boall_16",
+        "outletCode": "BOALL",
+        "number": 16,
+        "numberDisplay": "#16",
+        "name": "Gabriel Grimm",
+        "costume": "@gabrielgrimm_gs",
+        "instagram": "@gabrielgrimm_gs",
+        "phoneNumber": "0818-8899-3304",
+        "description": "Black Owl Gading Serpong contestant for Halloween Night (Black Owl All Outlet).",
+        "imageUrl": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=800&q=80",
+        "votes": 25,
+        "isActive": true,
+        "hasConsented": true,
+        "createdAt": "2026-11-01T06:14:59.917Z"
+      }
+    ],
+    [
+      "c_boall_17",
+      {
+        "id": "c_boall_17",
+        "outletCode": "BOALL",
+        "number": 17,
+        "numberDisplay": "#17",
+        "name": "Morgana LeFay",
+        "costume": "@morganalefay_gs",
+        "instagram": "@morganalefay_gs",
+        "phoneNumber": "0821-7788-3305",
+        "description": "Black Owl Gading Serpong contestant for Halloween Night (Black Owl All Outlet).",
+        "imageUrl": "https://images.unsplash.com/photo-1509248961158-e54f6934749c?auto=format&fit=crop&w=800&q=80",
+        "votes": 20,
+        "isActive": true,
+        "hasConsented": true,
+        "createdAt": "2026-11-01T07:14:59.917Z"
+      }
+    ],
+    [
+      "c_boall_18",
+      {
+        "id": "c_boall_18",
+        "outletCode": "BOALL",
+        "number": 18,
+        "numberDisplay": "#18",
+        "name": "Tristan Darke",
+        "costume": "@tristandarke_gs",
+        "instagram": "@tristandarke_gs",
+        "phoneNumber": "0857-4455-3306",
+        "description": "Black Owl Gading Serpong contestant for Halloween Night (Black Owl All Outlet).",
+        "imageUrl": "https://images.unsplash.com/photo-1543610892-0b1f7e6d8ac1?auto=format&fit=crop&w=800&q=80",
+        "votes": 16,
+        "isActive": true,
+        "hasConsented": true,
+        "createdAt": "2026-11-01T08:14:59.917Z"
+      }
+    ],
+    [
+      "c_boall_19",
+      {
+        "id": "c_boall_19",
+        "outletCode": "BOALL",
+        "number": 19,
+        "numberDisplay": "#19",
+        "name": "Natasha Roman",
+        "costume": "@natasharoman_scbd",
+        "instagram": "@natasharoman_scbd",
+        "phoneNumber": "0812-1122-4401",
+        "description": "Black Owl SCBD contestant for Halloween Night (Black Owl All Outlet).",
+        "imageUrl": "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=800&q=80",
+        "votes": 44,
+        "isActive": true,
+        "hasConsented": true,
+        "createdAt": "2026-11-01T09:14:59.917Z"
+      }
+    ],
+    [
+      "c_boall_20",
+      {
+        "id": "c_boall_20",
+        "outletCode": "BOALL",
+        "number": 20,
+        "numberDisplay": "#20",
+        "name": "Christian Grey",
+        "costume": "@christiangrey_scbd",
+        "instagram": "@christiangrey_scbd",
+        "phoneNumber": "0813-9988-4402",
+        "description": "Black Owl SCBD contestant for Halloween Night (Black Owl All Outlet).",
+        "imageUrl": "https://images.unsplash.com/photo-1568602471122-7832951cc4c5?auto=format&fit=crop&w=800&q=80",
+        "votes": 37,
+        "isActive": true,
+        "hasConsented": true,
+        "createdAt": "2026-11-01T10:14:59.917Z"
+      }
+    ],
+    [
+      "c_boall_21",
+      {
+        "id": "c_boall_21",
+        "outletCode": "BOALL",
+        "number": 21,
+        "numberDisplay": "#21",
+        "name": "Valerie Fox",
+        "costume": "@valeriefox_scbd",
+        "instagram": "@valeriefox_scbd",
+        "phoneNumber": "0811-3344-4403",
+        "description": "Black Owl SCBD contestant for Halloween Night (Black Owl All Outlet).",
+        "imageUrl": "https://images.unsplash.com/photo-1603775020644-eb8decd79994?auto=format&fit=crop&w=800&q=80",
+        "votes": 32,
+        "isActive": true,
+        "hasConsented": true,
+        "createdAt": "2026-11-01T11:14:59.917Z"
+      }
+    ],
+    [
+      "c_boall_22",
+      {
+        "id": "c_boall_22",
+        "outletCode": "BOALL",
+        "number": 22,
+        "numberDisplay": "#22",
+        "name": "Sebastian Kane",
+        "costume": "@sebastiankane_scbd",
+        "instagram": "@sebastiankane_scbd",
+        "phoneNumber": "0818-5566-4404",
+        "description": "Black Owl SCBD contestant for Halloween Night (Black Owl All Outlet).",
+        "imageUrl": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=800&q=80",
+        "votes": 27,
+        "isActive": true,
+        "hasConsented": true,
+        "createdAt": "2026-11-01T12:14:59.917Z"
+      }
+    ],
+    [
+      "c_boall_23",
+      {
+        "id": "c_boall_23",
+        "outletCode": "BOALL",
+        "number": 23,
+        "numberDisplay": "#23",
+        "name": "Diana Prince",
+        "costume": "@dianaprince_scbd",
+        "instagram": "@dianaprince_scbd",
+        "phoneNumber": "0821-2233-4405",
+        "description": "Black Owl SCBD contestant for Halloween Night (Black Owl All Outlet).",
+        "imageUrl": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=800&q=80",
+        "votes": 24,
+        "isActive": true,
+        "hasConsented": true,
+        "createdAt": "2026-11-01T13:14:59.917Z"
+      }
+    ],
+    [
+      "c_boall_24",
+      {
+        "id": "c_boall_24",
+        "outletCode": "BOALL",
+        "number": 24,
+        "numberDisplay": "#24",
+        "name": "Dominic Toretto",
+        "costume": "@dominictoretto_scbd",
+        "instagram": "@dominictoretto_scbd",
+        "phoneNumber": "0857-6677-4406",
+        "description": "Black Owl SCBD contestant for Halloween Night (Black Owl All Outlet).",
+        "imageUrl": "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&w=800&q=80",
+        "votes": 19,
+        "isActive": true,
+        "hasConsented": true,
+        "createdAt": "2026-11-01T14:14:59.917Z"
+      }
+    ],
+    [
+      "c_boall_25",
+      {
+        "id": "c_boall_25",
+        "outletCode": "BOALL",
+        "number": 25,
+        "numberDisplay": "#25",
+        "name": "Natalia Suryo",
+        "costume": "@nataliasuryo_sby",
+        "instagram": "@nataliasuryo_sby",
+        "phoneNumber": "0812-7788-5501",
+        "description": "Black Owl Surabaya contestant for Halloween Night (Black Owl All Outlet).",
+        "imageUrl": "https://images.unsplash.com/photo-1576836165612-8bc9b07e7778?auto=format&fit=crop&w=800&q=80",
+        "votes": 39,
+        "isActive": true,
+        "hasConsented": true,
+        "createdAt": "2026-11-01T15:14:59.917Z"
+      }
+    ],
+    [
+      "c_boall_26",
+      {
+        "id": "c_boall_26",
+        "outletCode": "BOALL",
+        "number": 26,
+        "numberDisplay": "#26",
+        "name": "Kenji Tanaka",
+        "costume": "@kenjitanaka_sby",
+        "instagram": "@kenjitanaka_sby",
+        "phoneNumber": "0813-6655-5502",
+        "description": "Black Owl Surabaya contestant for Halloween Night (Black Owl All Outlet).",
+        "imageUrl": "https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=crop&w=800&q=80",
+        "votes": 34,
+        "isActive": true,
+        "hasConsented": true,
+        "createdAt": "2026-11-01T16:14:59.917Z"
+      }
+    ],
+    [
+      "c_boall_27",
+      {
+        "id": "c_boall_27",
+        "outletCode": "BOALL",
+        "number": 27,
+        "numberDisplay": "#27",
+        "name": "Michelle Halim",
+        "costume": "@michellehalim_sby",
+        "instagram": "@michellehalim_sby",
+        "phoneNumber": "0811-4433-5503",
+        "description": "Black Owl Surabaya contestant for Halloween Night (Black Owl All Outlet).",
+        "imageUrl": "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=800&q=80",
+        "votes": 28,
+        "isActive": true,
+        "hasConsented": true,
+        "createdAt": "2026-11-01T17:14:59.917Z"
+      }
+    ],
+    [
+      "c_boall_28",
+      {
+        "id": "c_boall_28",
+        "outletCode": "BOALL",
+        "number": 28,
+        "numberDisplay": "#28",
+        "name": "Reza Rahadian",
+        "costume": "@rezarahadian_sby",
+        "instagram": "@rezarahadian_sby",
+        "phoneNumber": "0818-2233-5504",
+        "description": "Black Owl Surabaya contestant for Halloween Night (Black Owl All Outlet).",
+        "imageUrl": "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=800&q=80",
+        "votes": 25,
+        "isActive": true,
+        "hasConsented": true,
+        "createdAt": "2026-11-01T18:14:59.917Z"
+      }
+    ],
+    [
+      "c_boall_29",
+      {
+        "id": "c_boall_29",
+        "outletCode": "BOALL",
+        "number": 29,
+        "numberDisplay": "#29",
+        "name": "Chloe Tan",
+        "costume": "@chloetan_sby",
+        "instagram": "@chloetan_sby",
+        "phoneNumber": "0821-8899-5505",
+        "description": "Black Owl Surabaya contestant for Halloween Night (Black Owl All Outlet).",
+        "imageUrl": "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?auto=format&fit=crop&w=800&q=80",
+        "votes": 22,
+        "isActive": true,
+        "hasConsented": true,
+        "createdAt": "2026-11-01T19:14:59.917Z"
+      }
+    ],
+    [
+      "c_boall_30",
+      {
+        "id": "c_boall_30",
+        "outletCode": "BOALL",
+        "number": 30,
+        "numberDisplay": "#30",
+        "name": "Anthony Wong",
+        "costume": "@anthonywong_sby",
+        "instagram": "@anthonywong_sby",
+        "phoneNumber": "0857-9988-5506",
+        "description": "Black Owl Surabaya contestant for Halloween Night (Black Owl All Outlet).",
+        "imageUrl": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=800&q=80",
+        "votes": 18,
+        "isActive": true,
+        "hasConsented": true,
+        "createdAt": "2026-11-01T20:14:59.917Z"
+      }
+    ],
+    [
+      "c_boall_31",
+      {
+        "id": "c_boall_31",
+        "outletCode": "BOALL",
+        "number": 31,
+        "numberDisplay": "#31",
+        "name": "Stephanie Siregar",
+        "costume": "@stephaniesiregar_mdn",
+        "instagram": "@stephaniesiregar_mdn",
+        "phoneNumber": "0812-5566-6601",
+        "description": "Black Owl Medan contestant for Halloween Night (Black Owl All Outlet).",
+        "imageUrl": "https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&fit=crop&w=800&q=80",
+        "votes": 38,
+        "isActive": true,
+        "hasConsented": true,
+        "createdAt": "2026-11-01T21:14:59.917Z"
+      }
+    ],
+    [
+      "c_boall_32",
+      {
+        "id": "c_boall_32",
+        "outletCode": "BOALL",
+        "number": 32,
+        "numberDisplay": "#32",
+        "name": "Ricky Pratama",
+        "costume": "@rickypratama_mdn",
+        "instagram": "@rickypratama_mdn",
+        "phoneNumber": "0813-4433-6602",
+        "description": "Black Owl Medan contestant for Halloween Night (Black Owl All Outlet).",
+        "imageUrl": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=800&q=80",
+        "votes": 33,
+        "isActive": true,
+        "hasConsented": true,
+        "createdAt": "2026-11-01T22:14:59.917Z"
+      }
+    ],
+    [
+      "c_boall_33",
+      {
+        "id": "c_boall_33",
+        "outletCode": "BOALL",
+        "number": 33,
+        "numberDisplay": "#33",
+        "name": "Vanessa Wu",
+        "costume": "@vanessawu_mdn",
+        "instagram": "@vanessawu_mdn",
+        "phoneNumber": "0811-8877-6603",
+        "description": "Black Owl Medan contestant for Halloween Night (Black Owl All Outlet).",
+        "imageUrl": "https://images.unsplash.com/photo-1509248961158-e54f6934749c?auto=format&fit=crop&w=800&q=80",
+        "votes": 29,
+        "isActive": true,
+        "hasConsented": true,
+        "createdAt": "2026-11-01T23:14:59.917Z"
+      }
+    ],
+    [
+      "c_boall_34",
+      {
+        "id": "c_boall_34",
+        "outletCode": "BOALL",
+        "number": 34,
+        "numberDisplay": "#34",
+        "name": "Michael Chen",
+        "costume": "@michaelchen_mdn",
+        "instagram": "@michaelchen_mdn",
+        "phoneNumber": "0818-7766-6604",
+        "description": "Black Owl Medan contestant for Halloween Night (Black Owl All Outlet).",
+        "imageUrl": "https://images.unsplash.com/photo-1543610892-0b1f7e6d8ac1?auto=format&fit=crop&w=800&q=80",
+        "votes": 26,
+        "isActive": true,
+        "hasConsented": true,
+        "createdAt": "2026-11-02T00:14:59.917Z"
+      }
+    ],
+    [
+      "c_boall_35",
+      {
+        "id": "c_boall_35",
+        "outletCode": "BOALL",
+        "number": 35,
+        "numberDisplay": "#35",
+        "name": "Keisha Lubis",
+        "costume": "@keishalubis_mdn",
+        "instagram": "@keishalubis_mdn",
+        "phoneNumber": "0821-6655-6605",
+        "description": "Black Owl Medan contestant for Halloween Night (Black Owl All Outlet).",
+        "imageUrl": "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=800&q=80",
+        "votes": 21,
+        "isActive": true,
+        "hasConsented": true,
+        "createdAt": "2026-11-02T01:14:59.917Z"
+      }
+    ],
+    [
+      "c_boall_36",
+      {
+        "id": "c_boall_36",
+        "outletCode": "BOALL",
+        "number": 36,
+        "numberDisplay": "#36",
+        "name": "Brandon Lee",
+        "costume": "@brandonlee_mdn",
+        "instagram": "@brandonlee_mdn",
+        "phoneNumber": "0857-5544-6606",
+        "description": "Black Owl Medan contestant for Halloween Night (Black Owl All Outlet).",
+        "imageUrl": "https://images.unsplash.com/photo-1568602471122-7832951cc4c5?auto=format&fit=crop&w=800&q=80",
+        "votes": 17,
+        "isActive": true,
+        "hasConsented": true,
+        "createdAt": "2026-11-02T02:14:59.917Z"
+      }
+    ],
+    [
+      "c_boall_37",
+      {
+        "id": "c_boall_37",
+        "outletCode": "BOALL",
+        "number": 37,
+        "numberDisplay": "#37",
+        "name": "Test Upload Contestant",
+        "costume": "@testcostume",
+        "instagram": "@testcostume",
+        "phoneNumber": "0812-8899-7711",
+        "description": "Uploaded costume photo for Black Owl All Outlet Halloween Night.",
+        "imageUrl": "/uploads/1793600722177-9fa2f5c71d55.jpg",
+        "votes": 15,
+        "isActive": true,
+        "hasConsented": true,
+        "createdAt": "2026-11-02T03:14:59.917Z"
+      }
+    ]
+  ],
+  "votes": [],
+  "boundOutlets": [
+    [
+      "bca5739d641d8c19657403822559292fce3b12b9ddb3a33693ed298d9772b6b3",
+      "BOALL"
+    ],
+    [
+      "54a7abc260493d79d061e44eb4e5d106619a3808f1d5a5ac9a9c535d5c7c7672",
+      "BOHO"
+    ],
+    [
+      "594a72fd6c8016c2e5c9d64fcd6460d35bd863c13538bda471ddd59c04e06840",
+      "BOALL"
+    ],
+    [
+      "19b0553c1ea934e2045986bcd4f8a847a50c77c041bde19faec6600118de404b",
+      "BOHO"
+    ],
+    [
+      "45aa7b583a3623231db806b2b90e94a741508d6ae2e27e64a69496c25f14b159",
+      "BOHO"
+    ],
+    [
+      "1ea8e0eec49a46aa325582f9361c9988a57b3bdcfe6142cccb2c8d46cb1e1837",
+      "BOHO"
+    ],
+    [
+      "ec21cb0797aad30a6fac1218dd2608b1375cd1213ce48f6d9ae840945ebaa5e9",
+      "BOALL"
+    ]
+  ],
+  "auditLogs": [
+    {
+      "id": "audit_1793618099917",
+      "timestamp": "2026-11-02T11:14:59.917Z",
+      "action": "CONTESTANT_UPDATED",
+      "outletCode": "BOALL",
+      "actor": "SYSTEM_MIGRATION",
+      "details": "Synchronized Black Owl Head Office and Black Owl All Outlet (total BOALL: 37 contestants)."
+    },
+    {
+      "id": "audit_1793617422614",
+      "timestamp": "2026-11-02T11:03:42.614Z",
+      "action": "SYSTEM_BOOT",
+      "outletCode": "BOHO",
+      "actor": "SYSTEM",
+      "details": "Initialized live database (demo auto-reset permanently disabled)."
+    },
+    {
+      "id": "audit_1793600764261",
+      "timestamp": "2026-11-02T06:26:04.261Z",
+      "action": "CONTESTANT_DELETED",
+      "outletCode": "BOALL",
+      "actor": "System Cleanup",
+      "details": "Permanently deleted contestant #01 - Test Upload Contestant (had 0 votes)."
+    },
+    {
+      "id": "audit_1793600722225",
+      "timestamp": "2026-11-02T06:25:22.225Z",
+      "action": "CONTESTANT_ADDED",
+      "outletCode": "BOALL",
+      "actor": "Heryan Jojo",
+      "details": "Added contestant #01 - Test Upload Contestant (@testcostume)."
+    },
+    {
+      "id": "audit_1793595299025",
+      "timestamp": "2026-11-02T04:54:59.025Z",
+      "action": "CONTESTANT_DELETED",
+      "outletCode": "BOALL",
+      "actor": "Admin Tester",
+      "details": "Permanently deleted contestant #01 - Real Contestant Test (had 0 votes)."
+    },
+    {
+      "id": "audit_1793595299024",
+      "timestamp": "2026-11-02T04:54:59.024Z",
+      "action": "CONTESTANT_ADDED",
+      "outletCode": "BOALL",
+      "actor": "Admin Tester",
+      "details": "Added contestant #01 - Real Contestant Test (@test_ig)."
+    },
+    {
+      "id": "audit_1793595265635",
+      "timestamp": "2026-11-02T04:54:25.635Z",
+      "action": "SYSTEM_BOOT",
+      "outletCode": "BOHO",
+      "actor": "SYSTEM",
+      "details": "Semua data kontestan demo telah dihapus permanen. Database bersih dan siap menerima data riil."
+    }
+  ],
+  "staffUsers": [
+    {
+      "email": "heryanjojo@gmail.com",
+      "name": "Heryan Jojo",
+      "role": "SUPER_ADMIN"
+    },
+    {
+      "email": "superadmin@blackowl.id",
+      "name": "Black Owl Head of Events",
+      "role": "SUPER_ADMIN"
+    },
+    {
+      "email": "headoffice@blackowl.id",
+      "name": "Black Owl Head Office (HQ)",
+      "role": "SUPER_ADMIN"
+    },
+    {
+      "email": "admin.ho@blackowl.id",
+      "name": "Outlet Lead — Head Office",
+      "role": "OUTLET_ADMIN",
+      "assignedOutlet": "BOHO"
+    },
+    {
+      "email": "admin.all@blackowl.id",
+      "name": "Outlet Lead — All Outlets",
+      "role": "OUTLET_ADMIN",
+      "assignedOutlet": "BOALL"
+    },
+    {
+      "email": "admin.pik@blackowl.id",
+      "name": "Outlet Lead — PIK",
+      "role": "OUTLET_ADMIN",
+      "assignedOutlet": "BOALL"
+    },
+    {
+      "email": "admin.scbd@blackowl.id",
+      "name": "Outlet Lead — SCBD",
+      "role": "OUTLET_ADMIN",
+      "assignedOutlet": "BOALL"
+    },
+    {
+      "email": "admin.kg@blackowl.id",
+      "name": "Outlet Lead — Kelapa Gading",
+      "role": "OUTLET_ADMIN",
+      "assignedOutlet": "BOALL"
+    },
+    {
+      "email": "admin.gs@blackowl.id",
+      "name": "Outlet Lead — Gading Serpong",
+      "role": "OUTLET_ADMIN",
+      "assignedOutlet": "BOALL"
+    },
+    {
+      "email": "admin.sby@blackowl.id",
+      "name": "Outlet Lead — Surabaya",
+      "role": "OUTLET_ADMIN",
+      "assignedOutlet": "BOALL"
+    },
+    {
+      "email": "admin.mdn@blackowl.id",
+      "name": "Outlet Lead — Medan",
+      "role": "OUTLET_ADMIN",
+      "assignedOutlet": "BOALL"
+    }
+  ]
+}
