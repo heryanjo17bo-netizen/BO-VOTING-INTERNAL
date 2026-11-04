@@ -1,5 +1,6 @@
 import React from 'react';
 import type { Outlet } from '../types/index.ts';
+import { mediaUrl } from '../utils/basePath.ts';
 
 interface HeaderProps {
   outlet: Outlet;
@@ -30,7 +31,7 @@ export const Header: React.FC<HeaderProps> = ({
         {/* Brand Emblem */}
         <div className="flex items-center justify-center gap-2 mb-1.5">
           <img
-            src="/assets/aistudio/BO_LOGO_cc0ca4aa.png"
+            src={mediaUrl("/assets/aistudio/BO_LOGO_cc0ca4aa.png")}
             alt="Black Owl"
             className="w-11 h-11 object-contain drop-shadow-[0_2px_8px_rgba(216,179,122,0.3)] transition-transform hover:scale-105"
           />

@@ -1,5 +1,6 @@
 import React from 'react';
 import type { Contestant } from '../types/index.ts';
+import { mediaUrl } from '../utils/basePath.ts';
 
 interface PhotoPreviewModalProps {
   contestant: Contestant | null;
@@ -46,7 +47,7 @@ export const PhotoPreviewModal: React.FC<PhotoPreviewModalProps> = ({
         {/* Large Portrait Image */}
         <div className="relative w-full aspect-[3/4] max-h-[62vh] bg-[#211D1C] overflow-hidden">
           <img
-            src={contestant.imageUrl}
+            src={mediaUrl(contestant.imageUrl)}
             alt={contestant.name}
             className="w-full h-full object-cover object-top"
           />

@@ -1,5 +1,6 @@
 import React from 'react';
 import type { Contestant } from '../types/index.ts';
+import { mediaUrl } from '../utils/basePath.ts';
 
 interface ContestantCardProps {
   contestant: Contestant;
@@ -41,7 +42,7 @@ export const ContestantCard: React.FC<ContestantCardProps> = ({
         }}
       >
         <img
-          src={contestant.imageUrl}
+          src={mediaUrl(contestant.imageUrl)}
           alt={contestant.name}
           className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
           loading="lazy"

@@ -1,4 +1,5 @@
 import type { Outlet, OutletCode, Contestant, AuditLogEntry, StaffUser } from '../types/index.ts';
+import { apiUrl } from './basePath.ts';
 
 const DEVICE_ID_KEY = 'bo_hp_device_voter_id';
 const VOTER_STATE_KEY = 'bo_hp_voter_state_v2';
@@ -87,7 +88,7 @@ export async function fetchSession(): Promise<{
     BOALL?: { hasVoted: boolean; contestant?: Contestant };
   };
 }> {
-  const res = await fetch('/api/session', {
+  const res = await fetch(apiUrl('/api/session'), {
     headers: getGuestHeaders(),
     credentials: 'include',
   });
@@ -115,7 +116,7 @@ export async function fetchSession(): Promise<{
 }
 
 export async function fetchOutlets(): Promise<Outlet[]> {
-  const res = await fetch('/api/outlets', {
+  const res = await fetch(apiUrl('/api/outlets'), {
     headers: getGuestHeaders(),
     credentials: 'include',
   });
@@ -137,7 +138,7 @@ export async function fetchOutlet(outletCode: OutletCode): Promise<{
     };
   };
 }> {
-  const res = await fetch(`/api/outlets/${outletCode}`, {
+  const res = await fetch(apiUrl(`/api/outlets/${outletCode}`), {
     headers: getGuestHeaders(),
     credentials: 'include',
   });
@@ -170,7 +171,7 @@ export async function fetchLeaderboard(outletCode: OutletCode): Promise<{
   totalVotes: number;
   lastUpdated: string;
 }> {
-  const res = await fetch(`/api/leaderboard/${outletCode}`);
+  const res = await fetch(apiUrl(`/api/leaderboard/${outletCode}`));
   if (!res.ok) throw new Error(`Failed to fetch leaderboard for ${outletCode}`);
   return res.json();
 }
@@ -188,7 +189,7 @@ export async function castVote(outletCode: OutletCode, contestantId: string): Pr
     BOALL?: { hasVoted: boolean; contestant?: Contestant };
   };
 }> {
-  const res = await fetch('/api/vote', {
+  const res = await fetch(apiUrl('/api/vote'), {
     method: 'POST',
     headers: getGuestHeaders(),
     credentials: 'include',
@@ -222,12 +223,57 @@ export function subscribeToOutletEvents(
   onUpdate: () => void,
   onConnectionChange?: (connected: boolean) => void
 ): () => void {
+  const UPDATE_DEBOUNCE_MS = 1000;
+  const RECONNECT_MS = 3000;
+
   let eventSource: EventSource | null = null;
-  let retryTimeout: any = null;
+  let retryTimeout: ReturnType<typeof setTimeout> | null = null;
+  let debounceTimeout: ReturnType<typeof setTimeout> | null = null;
+  let disposed = false;
+
+  function clearRetry() {
+    if (retryTimeout) {
+      clearTimeout(retryTimeout);
+      retryTimeout = null;
+    }
+  }
+
+  function clearDebounce() {
+    if (debounceTimeout) {
+      clearTimeout(debounceTimeout);
+      debounceTimeout = null;
+    }
+  }
+
+  function scheduleUpdate() {
+    clearDebounce();
+    debounceTimeout = setTimeout(() => {
+      debounceTimeout = null;
+      if (!disposed) onUpdate();
+    }, UPDATE_DEBOUNCE_MS);
+  }
+
+  function scheduleReconnect(delayMs = RECONNECT_MS) {
+    if (disposed || retryTimeout) return;
+    retryTimeout = setTimeout(() => {
+      retryTimeout = null;
+      connect();
+    }, delayMs);
+  }
 
   function connect() {
+    if (disposed) return;
+    // Avoid stacking EventSource instances
+    if (eventSource) {
+      if (eventSource.readyState === EventSource.CONNECTING || eventSource.readyState === EventSource.OPEN) {
+        return;
+      }
+      eventSource.close();
+      eventSource = null;
+    }
+
     try {
-      eventSource = new EventSource(`/api/events/${outletCode}`);
+      eventSource = new EventSource(apiUrl(`/api/events/${outletCode}`));
 
       eventSource.onopen = () => {
         if (onConnectionChange) onConnectionChange(true);
@@ -239,7 +285,7 @@ export function subscribeToOutletEvents(
           if (data.type === 'CONNECTED') {
             if (onConnectionChange) onConnectionChange(true);
           } else if (data.type === 'UPDATE' && data.outletCode === outletCode) {
-            onUpdate();
+            scheduleUpdate();
           }
         } catch {
           // ignore keepalive pings
@@ -252,19 +298,21 @@ export function subscribeToOutletEvents(
           eventSource.close();
           eventSource = null;
         }
-        // Retry connection after 3 seconds
-        retryTimeout = setTimeout(connect, 3000);
+        // Single manual reconnect — close first so browser does not also auto-reconnect
+        scheduleReconnect(RECONNECT_MS);
       };
-    } catch (e) {
+    } catch {
       if (onConnectionChange) onConnectionChange(false);
-      retryTimeout = setTimeout(connect, 4000);
+      scheduleReconnect(4000);
     }
   }
 
   connect();
 
   return () => {
-    if (retryTimeout) clearTimeout(retryTimeout);
+    disposed = true;
+    clearRetry();
+    clearDebounce();
     if (eventSource) {
       eventSource.close();
       eventSource = null;
@@ -277,7 +325,7 @@ export async function uploadContestantPhoto(file: File): Promise<string> {
   const formData = new FormData();
   formData.append('photo', file);
 
-  const res = await fetch('/api/upload', {
+  const res = await fetch(apiUrl('/api/upload'), {
     method: 'POST',
     body: formData,
   });
@@ -296,7 +344,7 @@ export async function fetchAdminContestants(outletCode: OutletCode): Promise<{
   contestants: Contestant[];
   nextNumber: number;
 }> {
-  const res = await fetch(`/api/admin/contestants/${outletCode}`, {
+  const res = await fetch(apiUrl(`/api/admin/contestants/${outletCode}`), {
     headers: getStaffHeaders(),
   });
   if (!res.ok) {
@@ -317,7 +365,7 @@ export async function addAdminContestant(payload: {
   hasConsented: boolean;
   actor: string;
 }): Promise<Contestant> {
-  const res = await fetch('/api/admin/contestants', {
+  const res = await fetch(apiUrl('/api/admin/contestants'), {
     method: 'POST',
     headers: getStaffHeaders(),
     body: JSON.stringify(payload),
@@ -337,7 +385,7 @@ export async function updateAdminContestant(
   updates: Partial<Pick<Contestant, 'name' | 'costume' | 'instagram' | 'phoneNumber' | 'description' | 'imageUrl' | 'isActive'>>,
   actor: string
 ): Promise<Contestant> {
-  const res = await fetch(`/api/admin/contestants/${id}`, {
+  const res = await fetch(apiUrl(`/api/admin/contestants/${id}`), {
     method: 'PUT',
     headers: getStaffHeaders(),
     body: JSON.stringify({ ...updates, actor }),
@@ -353,7 +401,7 @@ export async function updateAdminContestant(
 }
 
 export async function toggleHideContestant(id: string, actor: string): Promise<Contestant> {
-  const res = await fetch(`/api/admin/contestants/${id}/toggle-hide`, {
+  const res = await fetch(apiUrl(`/api/admin/contestants/${id}/toggle-hide`), {
     method: 'POST',
     headers: getStaffHeaders(),
     body: JSON.stringify({ actor }),
@@ -369,7 +417,7 @@ export async function toggleHideContestant(id: string, actor: string): Promise<C
 }
 
 export async function deleteAdminContestant(id: string, actor: string): Promise<void> {
-  const res = await fetch(`/api/admin/contestants/${id}`, {
+  const res = await fetch(apiUrl(`/api/admin/contestants/${id}`), {
     method: 'DELETE',
     headers: getStaffHeaders(),
     body: JSON.stringify({ actor }),
@@ -386,7 +434,7 @@ export async function toggleOutletVotingStatus(
   active: boolean,
   actor: string
 ): Promise<Outlet> {
-  const res = await fetch(`/api/admin/outlets/${outletCode}/voting-status`, {
+  const res = await fetch(apiUrl(`/api/admin/outlets/${outletCode}/voting-status`), {
     method: 'POST',
     headers: getStaffHeaders(),
     body: JSON.stringify({ active, actor }),
@@ -402,7 +450,7 @@ export async function toggleOutletVotingStatus(
 }
 
 export async function fetchAuditLogs(outletCode?: OutletCode): Promise<AuditLogEntry[]> {
-  const url = outletCode ? `/api/admin/audit-logs?outletCode=${outletCode}` : '/api/admin/audit-logs';
+  const url = apiUrl(outletCode ? `/api/admin/audit-logs?outletCode=${outletCode}` : '/api/admin/audit-logs');
   const res = await fetch(url, {
     headers: getStaffHeaders(),
   });
@@ -417,7 +465,7 @@ export async function resetSingleOutlet(
   outletCode: OutletCode,
   actor: string
 ): Promise<{ success: boolean; outlet: Outlet; message: string }> {
-  const res = await fetch(`/api/admin/outlets/${outletCode}/reset`, {
+  const res = await fetch(apiUrl(`/api/admin/outlets/${outletCode}/reset`), {
     method: 'POST',
     headers: {
       ...getStaffHeaders(),
@@ -437,7 +485,7 @@ export async function bulkDeleteContestants(
   outletCode: OutletCode,
   actor: string
 ): Promise<{ success: boolean; deletedCount: number; message: string }> {
-  const res = await fetch('/api/admin/contestants/bulk-delete', {
+  const res = await fetch(apiUrl('/api/admin/contestants/bulk-delete'), {
     method: 'POST',
     headers: {
       ...getStaffHeaders(),
@@ -456,7 +504,7 @@ export async function fetchStaffConfig(): Promise<{
   allowedStaff: StaffUser[];
   superAdminEmail: string;
 }> {
-  const res = await fetch('/api/admin/staff');
+  const res = await fetch(apiUrl('/api/admin/staff'));
   if (!res.ok) throw new Error('Failed to fetch staff list');
   return res.json();
 }
@@ -468,7 +516,7 @@ export async function addStaffMember(data: {
   assignedOutlet?: OutletCode;
   pin?: string;
 }): Promise<{ success: boolean; staff: StaffUser; allowedStaff: StaffUser[] }> {
-  const res = await fetch('/api/admin/staff', {
+  const res = await fetch(apiUrl('/api/admin/staff'), {
     method: 'POST',
     headers: {
       ...getStaffHeaders(),
@@ -487,7 +535,7 @@ export async function updateStaffPin(
   email: string,
   pin?: string
 ): Promise<{ success: boolean; staff: StaffUser; allowedStaff: StaffUser[] }> {
-  const res = await fetch(`/api/admin/staff/${encodeURIComponent(email)}/pin`, {
+  const res = await fetch(apiUrl(`/api/admin/staff/${encodeURIComponent(email)}/pin`), {
     method: 'PATCH',
     headers: {
       ...getStaffHeaders(),
@@ -503,7 +551,7 @@ export async function updateStaffPin(
 }
 
 export async function removeStaffMember(email: string): Promise<{ success: boolean; allowedStaff: StaffUser[] }> {
-  const res = await fetch(`/api/admin/staff/${encodeURIComponent(email)}`, {
+  const res = await fetch(apiUrl(`/api/admin/staff/${encodeURIComponent(email)}`), {
     method: 'DELETE',
     headers: getStaffHeaders(),
   });
@@ -518,7 +566,7 @@ export async function loginStaff(
   email: string,
   pin?: string
 ): Promise<{ success: boolean; user: StaffUser; message?: string }> {
-  const res = await fetch('/api/admin/login', {
+  const res = await fetch(apiUrl('/api/admin/login'), {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ email, pin }),

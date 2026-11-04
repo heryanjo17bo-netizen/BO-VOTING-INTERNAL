@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import type { StaffUser } from '../types/index.ts';
 import { loginStaff } from '../utils/api.ts';
+import { mediaUrl } from '../utils/basePath.ts';
 
 interface AdminLoginGateProps {
   allowedStaff: StaffUser[];
@@ -61,7 +62,7 @@ export const AdminLoginGate: React.FC<AdminLoginGateProps> = ({
           {/* Logo & Header */}
           <div className="flex flex-col items-center text-center mb-6">
             <img
-              src="/assets/aistudio/BO_LOGO_cc0ca4aa.png"
+              src={mediaUrl("/assets/aistudio/BO_LOGO_cc0ca4aa.png")}
               alt="Black Owl Logo"
               className="w-16 h-16 object-contain drop-shadow-[0_4px_20px_rgba(216,179,122,0.35)] mb-3"
             />

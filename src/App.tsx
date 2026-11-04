@@ -18,6 +18,7 @@ import { MobileLeaderboard } from './components/MobileLeaderboard.tsx';
 import { LedDisplayView } from './components/LedDisplayView.tsx';
 import { AdminPortal } from './components/AdminPortal.tsx';
 import { OutletLanding } from './components/OutletLanding.tsx';
+import { mediaUrl, stripBase, withBase } from './utils/basePath.ts';
 
 function normalizeRouteOutlet(code?: string): OutletCode {
   if (!code) return 'BOALL';
@@ -32,7 +33,7 @@ function parseRoute(): {
   outletCode?: OutletCode;
   initialTab?: 'vote' | 'leaderboard';
 } {
-  const path = window.location.pathname;
+  const path = stripBase(window.location.pathname);
   const search = new URLSearchParams(window.location.search);
   const hash = window.location.hash.replace('#', '');
 
@@ -248,22 +249,22 @@ export default function App() {
   // Route Handlers
   const handleSelectOutletFromLanding = (code: string, route: 'vote' | 'leaderboard' | 'display') => {
     const url = route === 'display' ? `/display/${code}` : route === 'leaderboard' ? `/leaderboard/${code}` : `/vote/${code}`;
-    window.history.pushState({}, '', url);
+    window.history.pushState({}, '', withBase(url));
     setRouteInfo(parseRoute());
   };
 
   const handleOpenAdminFromLanding = () => {
-    window.history.pushState({}, '', '/admin');
+    window.history.pushState({}, '', withBase('/admin'));
     setRouteInfo(parseRoute());
   };
 
   const handleReturnHome = () => {
-    window.history.pushState({}, '', '/');
+    window.history.pushState({}, '', withBase('/'));
     setRouteInfo(parseRoute());
   };
 
   const handleSwitchCategory = (targetCode: 'BOHO' | 'BOALL') => {
-    window.history.pushState({}, '', `/vote/${targetCode}`);
+    window.history.pushState({}, '', withBase(`/vote/${targetCode}`));
     setRouteInfo({ page: 'guest', outletCode: targetCode, initialTab: 'vote' });
   };
 
@@ -310,7 +311,7 @@ export default function App() {
               onTabChange={(tab) => {
                 setActiveTab(tab);
                 const newPath = tab === 'leaderboard' ? `/leaderboard/${outlet.code}` : `/vote/${outlet.code}`;
-                window.history.replaceState({}, '', newPath);
+                window.history.replaceState({}, '', withBase(newPath));
               }}
               votingActive={outlet.votingActive}
               hasVoted={hasVotedCurrent}
@@ -437,7 +438,7 @@ export default function App() {
                 ) : contestants.length === 0 ? (
                   <div className="py-20 text-center bg-[#342D2A] rounded-3xl border border-[#4A3F39]/60 p-6 my-4">
                     <img
-                      src="/assets/aistudio/BO_LOGO_cc0ca4aa.png"
+                      src={mediaUrl("/assets/aistudio/BO_LOGO_cc0ca4aa.png")}
                       alt="Black Owl"
                       className="w-12 h-12 mx-auto object-contain mb-3 opacity-60"
                     />
@@ -482,7 +483,7 @@ export default function App() {
         ) : isLoading ? (
           <div className="flex-1 flex flex-col items-center justify-center p-6 text-center space-y-4">
             <img
-              src="/assets/aistudio/BO_LOGO_cc0ca4aa.png"
+              src={mediaUrl("/assets/aistudio/BO_LOGO_cc0ca4aa.png")}
               alt="Black Owl"
               className="w-14 h-14 object-contain animate-pulse"
             />

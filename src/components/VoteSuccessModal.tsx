@@ -1,5 +1,6 @@
 import React from 'react';
 import type { Contestant } from '../types/index.ts';
+import { mediaUrl } from '../utils/basePath.ts';
 
 interface VoteSuccessModalProps {
   contestant: Contestant | null;
@@ -58,7 +59,7 @@ export const VoteSuccessModal: React.FC<VoteSuccessModalProps> = ({
         {contestant && (
           <div className="w-full bg-[#211D1C] rounded-2xl border border-[#4A3F39]/60 p-3 mb-4 flex items-center gap-3 text-left">
             <img
-              src={contestant.imageUrl}
+              src={mediaUrl(contestant.imageUrl)}
               alt={contestant.name}
               className="w-14 h-18 rounded-xl object-cover bg-[#27211F] flex-shrink-0"
             />

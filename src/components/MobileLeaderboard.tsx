@@ -1,5 +1,6 @@
 import React from 'react';
 import type { Contestant, Outlet } from '../types/index.ts';
+import { mediaUrl } from '../utils/basePath.ts';
 
 interface MobileLeaderboardProps {
   outlet: Outlet;
@@ -94,7 +95,7 @@ export const MobileLeaderboard: React.FC<MobileLeaderboardProps> = ({
                       }`}
                     >
                       <img
-                        src={contestant.imageUrl}
+                        src={mediaUrl(contestant.imageUrl)}
                         alt={contestant.name}
                         className="w-full h-full object-cover"
                         onError={(e) => {
@@ -172,7 +173,7 @@ export const MobileLeaderboard: React.FC<MobileLeaderboardProps> = ({
                   {/* Thumbnail */}
                   <div className="relative w-11 h-13 rounded-xl overflow-hidden bg-[#27211F] flex-shrink-0">
                     <img
-                      src={contestant.imageUrl}
+                      src={mediaUrl(contestant.imageUrl)}
                       alt={contestant.name}
                       className="w-full h-full object-cover"
                       onError={(e) => {

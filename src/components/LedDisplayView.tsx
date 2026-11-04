@@ -2,6 +2,7 @@ import React, { useEffect, useState, useMemo } from 'react';
 import QRCode from 'qrcode';
 import type { Contestant, Outlet, OutletCode } from '../types/index.ts';
 import { fetchLeaderboard, subscribeToOutletEvents } from '../utils/api.ts';
+import { appUrl, mediaUrl } from '../utils/basePath.ts';
 
 interface LedDisplayViewProps {
   outletCode: OutletCode;
@@ -39,7 +40,7 @@ export const LedDisplayView: React.FC<LedDisplayViewProps> = ({ outletCode }) =>
     loadData();
 
     // Generate QR code for the guest voting URL
-    const votingUrl = `${window.location.origin}/vote/${outletCode}`;
+    const votingUrl = appUrl(`/vote/${outletCode}`);
     QRCode.toDataURL(votingUrl, {
       margin: 1,
       width: 260,
@@ -142,7 +143,7 @@ export const LedDisplayView: React.FC<LedDisplayViewProps> = ({ outletCode }) =>
         {/* Left: Brand Identity */}
         <div className="flex items-center gap-5">
           <img
-            src="/assets/aistudio/BO_LOGO_cc0ca4aa.png"
+            src={mediaUrl("/assets/aistudio/BO_LOGO_cc0ca4aa.png")}
             alt="Black Owl"
             className="w-16 h-16 object-contain drop-shadow-[0_0_20px_rgba(216,179,122,0.45)]"
           />
@@ -204,7 +205,7 @@ export const LedDisplayView: React.FC<LedDisplayViewProps> = ({ outletCode }) =>
                 <div className="relative mb-3 group">
                   <div className="w-44 h-60 xl:w-48 xl:h-64 rounded-3xl overflow-hidden bg-[#27211F] border-2 border-[#AFA39B] shadow-2xl">
                     <img
-                      src={second.imageUrl}
+                      src={mediaUrl(second.imageUrl)}
                       alt={second.name}
                       className="w-full h-full object-cover object-top"
                       onError={(e) => {
@@ -254,7 +255,7 @@ export const LedDisplayView: React.FC<LedDisplayViewProps> = ({ outletCode }) =>
                 <div className="relative mb-3 group">
                   <div className="w-56 h-76 xl:w-60 xl:h-80 rounded-3xl overflow-hidden bg-[#27211F] border-4 border-[#D8B37A] shadow-[0_0_40px_rgba(216,179,122,0.45)]">
                     <img
-                      src={first.imageUrl}
+                      src={mediaUrl(first.imageUrl)}
                       alt={first.name}
                       className="w-full h-full object-cover object-top"
                       onError={(e) => {
@@ -292,7 +293,7 @@ export const LedDisplayView: React.FC<LedDisplayViewProps> = ({ outletCode }) =>
                 <div className="relative mb-3 group">
                   <div className="w-44 h-60 xl:w-48 xl:h-64 rounded-3xl overflow-hidden bg-[#27211F] border-2 border-[#C87D4A] shadow-2xl">
                     <img
-                      src={third.imageUrl}
+                      src={mediaUrl(third.imageUrl)}
                       alt={third.name}
                       className="w-full h-full object-cover object-top"
                       onError={(e) => {
@@ -380,7 +381,7 @@ export const LedDisplayView: React.FC<LedDisplayViewProps> = ({ outletCode }) =>
 
                     {/* Thumbnail */}
                     <img
-                      src={c.imageUrl}
+                      src={mediaUrl(c.imageUrl)}
                       alt={c.name}
                       className="w-12 h-14 rounded-xl object-cover object-top bg-[#1D1918] flex-shrink-0"
                       onError={(e) => {

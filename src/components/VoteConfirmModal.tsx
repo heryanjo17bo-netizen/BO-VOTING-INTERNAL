@@ -1,5 +1,6 @@
 import React from 'react';
 import type { Contestant } from '../types/index.ts';
+import { mediaUrl } from '../utils/basePath.ts';
 
 interface VoteConfirmModalProps {
   contestant: Contestant | null;
@@ -29,7 +30,7 @@ export const VoteConfirmModal: React.FC<VoteConfirmModalProps> = ({
         {/* Black Owl mini seal */}
         <div className="w-10 h-10 mb-2 flex items-center justify-center">
           <img
-            src="/assets/aistudio/BO_LOGO_cc0ca4aa.png"
+            src={mediaUrl("/assets/aistudio/BO_LOGO_cc0ca4aa.png")}
             alt="Black Owl"
             className="w-10 h-10 object-contain drop-shadow"
           />
@@ -46,7 +47,7 @@ export const VoteConfirmModal: React.FC<VoteConfirmModalProps> = ({
         <div className="w-full bg-[#211D1C] rounded-2xl border border-[#4A3F39]/60 p-3 mb-4 flex items-center gap-3.5 text-left">
           <div className="relative w-16 h-20 rounded-xl overflow-hidden bg-[#27211F] flex-shrink-0">
             <img
-              src={contestant.imageUrl}
+              src={mediaUrl(contestant.imageUrl)}
               alt={contestant.name}
               className="w-full h-full object-cover"
             />

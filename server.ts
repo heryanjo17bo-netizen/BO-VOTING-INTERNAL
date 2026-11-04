@@ -21,8 +21,10 @@ import type { OutletCode } from './src/types/index.ts';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const PORT = parseInt(process.env.PORT || '3000', 10);
+const PORT = parseInt(process.env.PORT || '3001', 10);
 const COOKIE_SECRET = process.env.COOKIE_SECRET || 'black-owl-halloween-signed-secret-2026';
+const RAW_BASE = process.env.BASE_PATH ?? '/headoffice';
+const BASE_PATH = RAW_BASE === '/' ? '' : RAW_BASE.replace(/\/$/, '');
 const UPLOADS_DIR = path.join(__dirname, 'public', 'uploads');
 
 if (!fs.existsSync(UPLOADS_DIR)) {
@@ -57,6 +59,18 @@ const upload = multer({
 async function startServer() {
   const app = express();
 
+  // Strip mount path so /headoffice/api/... is handled as /api/...
+  if (BASE_PATH) {
+    app.use((req: Request, _res: Response, next: NextFunction) => {
+      if (req.url === BASE_PATH || req.url.startsWith(`${BASE_PATH}/`)) {
+        req.url = req.url.slice(BASE_PATH.length) || '/';
+      } else if (req.url.startsWith(`${BASE_PATH}?`)) {
+        req.url = req.url.slice(BASE_PATH.length);
+      }
+      next();
+    });
+  }
+
   // Basic security headers and JSON parsing
   app.use(express.json({ limit: '10mb' }));
   app.use(express.urlencoded({ extended: true, limit: '10mb' }));
@@ -81,7 +95,7 @@ async function startServer() {
       sameSite: 'lax',
       signed: true,
       maxAge: 30 * 24 * 60 * 60 * 1000, // 30 days
-      path: '/',
+      path: BASE_PATH || '/',
     });
     res.setHeader('x-voter-id', voterId);
     (req as any).voterId = voterId;
@@ -120,25 +134,40 @@ async function startServer() {
     sseClients.set(code, new Set());
   }
 
-  // Subscribe to VotingEngine updates to push SSE events
-  votingEngine.subscribe((outletCode) => {
-    const notifyCodes: OutletCode[] = outletCode === 'BOALL'
-      ? ['BOALL', 'BOPIK', 'BOKG', 'BOGS', 'BOSCBD', 'BOSBY', 'BOMDN']
-      : [outletCode];
+  // Coalesce SSE UPDATE broadcasts: at most one per outlet every 750ms
+  const SSE_COALESCE_MS = 750;
+  const pendingSseFlush: Map<OutletCode, ReturnType<typeof setTimeout>> = new Map();
+
+  const flushSseUpdate = (outletCode: OutletCode) => {
+    pendingSseFlush.delete(outletCode);
+    // BOALL updates also fan out to branch outlet SSE rooms
+    const notifyCodes: OutletCode[] =
+      outletCode === 'BOALL'
+        ? ['BOALL', 'BOPIK', 'BOKG', 'BOGS', 'BOSCBD', 'BOSBY', 'BOMDN']
+        : [outletCode];
+
+    const payload = JSON.stringify({
+      type: 'UPDATE',
+      outletCode,
+      timestamp: Date.now(),
+    });
 
     for (const code of notifyCodes) {
       const clients = sseClients.get(code);
-      if (clients && clients.size > 0) {
-        const payload = JSON.stringify({
-          type: 'UPDATE',
-          outletCode,
-          timestamp: Date.now(),
-        });
-        for (const client of clients) {
-          client.write(`data: ${payload}\n\n`);
-        }
+      if (!clients || clients.size === 0) continue;
+      for (const client of clients) {
+        client.write(`data: ${payload}\n\n`);
       }
     }
+  };
+
+  // Subscribe to VotingEngine updates to push SSE events
+  votingEngine.subscribe((outletCode) => {
+    if (pendingSseFlush.has(outletCode)) return;
+    pendingSseFlush.set(
+      outletCode,
+      setTimeout(() => flushSseUpdate(outletCode), SSE_COALESCE_MS)
+    );
   });
 
   // --- API ROUTES ---
@@ -304,7 +333,7 @@ async function startServer() {
       res.status(400).json({ error: 'No photo uploaded or unsupported file format' });
       return;
     }
-    const publicUrl = `/uploads/${req.file.filename}`;
+    const publicUrl = `${BASE_PATH}/uploads/${req.file.filename}`;
     res.json({
       success: true,
       imageUrl: publicUrl,
@@ -684,7 +713,9 @@ async function startServer() {
   }
 
   app.listen(PORT, '0.0.0.0', () => {
-    console.log(`[Black Owl Halloween Voting] Server running on http://0.0.0.0:${PORT}`);
+    console.log(
+      `[Black Owl Head Office Voting] Server running on http://0.0.0.0:${PORT}${BASE_PATH || '/'}`
+    );
   });
 }
 
